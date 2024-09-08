@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Employee Information Output</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Chart.js (for radar chart) -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <div class="container">
+            <div class="logo-brand">
+                <img src="https://www.rucha.co.in/assets/img/master/RUCHA-LOGO-WHITE.png" alt="Logo" class="img-fluid" style="height: 100px; width: 70%; margin-top: 5px;">
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="/dashboard">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="/logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Output Page -->
+    <div class="container py-5">
+        <div class="row">
+            <!-- Information Display -->
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">Employee Information</h5>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>Name:</strong>Bhupendra</p>
+                        <p><strong>Gender:</strong> Male</p>
+                        <p><strong>Education:</strong>12th Pass</p>
+                        <p><strong>Joining Date:</strong> 2024-09-01</p>
+                        <p><strong>Function:</strong>Welding</p>
+                        <p><strong>Department:</strong> Quality</p>
+                        <p><strong>Current Skill Level:</strong> Level 1</p>
+                        <p><strong>Required Skill Level:</strong> Level 2</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Radar Chart and Gap Identification -->
+            <div class="col-md-6">
+                <div class="row">
+                    <!-- Radar Chart -->
+                    <div class="col-md-12 mb-4">
+                        <div class="card">
+                            <div class="card-header bg-primary text-white">
+                                <h5 class="mb-0">Skills Radar Chart</h5>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="radarChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gap Identification -->
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header bg-primary text-white">
+                                <h5 class="mb-0">Gap Identification</h5>
+                            </div>
+                            <div class="card-body">
+                                <p>Training Required</p>
+                                <h6>Production as performance</h6>
+                                <h6>Arrest defect during process</h6>
+                                <h6>Daily routine activity</h6>
+                                <h6>Basic awareness of process</h6>
+                                <!-- Add your gap identification content here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Chart.js Script -->
+    <script>
+        // Radar Chart Data
+        const ctx = document.getElementById('radarChart').getContext('2d');
+        const radarChart = new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['Skill 1', 'Skill 2', 'Skill 3', 'Skill 4', 'Skill 5'],
+                datasets: [{
+                    label: 'Employee Skills',
+                    data: [2, 3, 4, 1, 5], // Example data
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scale: {
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
